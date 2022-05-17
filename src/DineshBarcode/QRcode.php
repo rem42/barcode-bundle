@@ -1268,8 +1268,8 @@ class QRcode
             $blacks  = 0;
             $blacks  = $this->makeMaskNo($i, $width, $frame, $mask);
             $blacks += $this->writeFormatInformation($width, $mask, $i, $level);
-            $blacks  = (int) (100                           * $blacks / ($width                           * $width));
-            $demerit = (int) ((int) (abs($blacks - 50)                / 5) * N4);
+            $blacks  = (int) (100                                          * $blacks / ($width                                          * $width));
+            $demerit = (int) ((int) (abs($blacks - 50)                               / 5) * N4);
             $demerit += $this->evaluateSymbol($width, $mask);
 
             if ($demerit < $minDemerit) {
@@ -1616,7 +1616,7 @@ class QRcode
         $inputitem['bstream'] = $this->appendNum($inputitem['bstream'], $this->lengthIndicator(QR_MODE_NM, $version), $inputitem['size']);
 
         for ($i = 0; $i < $words; $i++) {
-            $val = (\ord($inputitem['data'][$i * 3])      - \ord('0'))      * 100;
+            $val = (\ord($inputitem['data'][$i * 3])      - \ord('0')) * 100;
             $val += (\ord($inputitem['data'][$i * 3 + 1]) - \ord('0')) * 10;
             $val += (\ord($inputitem['data'][$i * 3 + 2]) - \ord('0'));
             $inputitem['bstream'] = $this->appendNum($inputitem['bstream'], 10, $val);
@@ -2190,7 +2190,7 @@ class QRcode
         if ($ver > $this->version) {
             $this->version = $ver;
         }
-          while (true){
+        while (true) {
             $cbs   = $this->createBitStream($items);
             $items = $cbs[0];
             $bits  = $cbs[1];
@@ -2642,7 +2642,7 @@ class QRcode
         } else {
             $spec[0] = $b1;
             $spec[1] = (int) ($data / ($b1 + $b2));
-            $spec[2] = (int) ($ecc  / ($b1  + $b2));
+            $spec[2] = (int) ($ecc  / ($b1 + $b2));
             $spec[3] = $b2;
             $spec[4] = $spec[1] + 1;
         }
