@@ -616,11 +616,14 @@ class PDF417
         // add error correction codewords
         $codewords = array_merge($codewords, $ecw);
         // add horizontal quiet zones to start and stop patterns
-        $pstart                    = str_repeat('0', QUIETH) . $this->start_pattern;
-        $pstop                     = $this->stop_pattern . str_repeat('0', QUIETH);
-        $barcode_array['num_rows'] = ($rows                                                       * ROWHEIGHT) + (2                                                       * QUIETV);
-        $barcode_array['num_cols'] = (($cols                                                 + 2) * 17)                                                 + 35                                                 + (2 * QUIETH);
-        $barcode_array['bcode']    = [];
+        $pstart = str_repeat('0', QUIETH) . $this->start_pattern;
+        $pstop  = $this->stop_pattern . str_repeat('0', QUIETH);
+
+        $barcode_array['num_rows'] = ($rows * ROWHEIGHT) + (2 * QUIETV);
+
+        $barcode_array['num_cols'] = (($cols + 2) * 17) + 35 + (2 * QUIETH);
+
+        $barcode_array['bcode'] = [];
         // build rows for vertical quiet zone
         if (QUIETV > 0) {
             $empty_row = array_fill(0, $barcode_array['num_cols'], 0);
