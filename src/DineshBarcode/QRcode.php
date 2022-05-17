@@ -1268,8 +1268,8 @@ class QRcode
             $blacks  = 0;
             $blacks  = $this->makeMaskNo($i, $width, $frame, $mask);
             $blacks += $this->writeFormatInformation($width, $mask, $i, $level);
-            $blacks  = (int) (100                                          * $blacks / ($width                                          * $width));
-            $demerit = (int) ((int) (abs($blacks - 50)                               / 5) * N4);
+            $blacks  = (int) (100                                                         * $blacks / ($width                                                         * $width));
+            $demerit = (int) ((int) (abs($blacks - 50)                                              / 5) * N4);
             $demerit += $this->evaluateSymbol($width, $mask);
 
             if ($demerit < $minDemerit) {
