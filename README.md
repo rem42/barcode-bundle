@@ -242,3 +242,4 @@ To execute unit tests, `composer install` and run:
 ```sh
 phpunit --coverage-text
 ```
+
